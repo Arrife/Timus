@@ -1,2 +1,2 @@
-# timus
-task from timus
+# Timus
+Solving tasks from timus
