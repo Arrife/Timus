@@ -1,20 +1,21 @@
 import java.io.*;
 import java.util.*;
 
-public class template implements Runnable {
+public class ReverseRoot implements Runnable {
 	public StringTokenizer strtok;
 	public BufferedReader inr;
 	public PrintWriter out;
 
 	public static void main(String[] args) {
-		new Thread(new template()).start();
+		new Thread(new ReverseRoot()).start();
 	}
 
-	public static final String taskname = "template";
+	public static final String taskname = "ReverseRoot";
 
 	public void run() {
 		Locale.setDefault(Locale.US);
 		boolean oj = System.getProperty("ONLINE_JUDGE") != null;
+		//oj = true;
 		try {
 			inr = new BufferedReader(oj ? new InputStreamReader(System.in, "ISO-8859-1") : new FileReader(taskname + ".in"));
 			out = new PrintWriter(oj ? new OutputStreamWriter(System.out, "ISO-8859-1") : new FileWriter(taskname + ".out"));
@@ -62,10 +63,16 @@ public class template implements Runnable {
 	// Solution
 
 
-
-
-
 	public void solve() throws NumberFormatException, IOException {
-		// TODO: write solution
+		Stack<Long> a = new Stack<Long>();
+		while(true) {
+			try {
+				a.push(nextLong());
+			} catch (NullPointerException e) {
+				break;
+			}
+		}
+		while(!a.empty())
+			out.printf("%.4f\n", Math.sqrt(a.pop()));
 	}
 }
